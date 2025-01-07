@@ -30,6 +30,8 @@ Copy code
 from huggingface_hub import login
 login("your_huggingface_token")
 🚀 Workflow
+
+
 1️⃣ Load and Process the Document
 Use PyPDFLoader to load a PDF and split it into chunks:
 
@@ -45,6 +47,8 @@ documents = loader.load()
 # Split the document into chunks
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=30, separator="\n")
 docs = text_splitter.split_documents(documents=documents)
+
+
 2️⃣ Create a Vector Store with FAISS
 Embed the document chunks and store them in a FAISS vector database:
 
@@ -67,6 +71,8 @@ persisted_vectorstore = FAISS.load_local("faiss_index_", embeddings, allow_dange
 
 # Create retriever
 retriever = persisted_vectorstore.as_retriever()
+
+
 3️⃣ Load Llama 3.2 Model with Ollama
 Use Ollama to load the Llama 3.2 model for conversational AI:
 
@@ -77,6 +83,8 @@ from langchain_community.llms import Ollama
 llm = Ollama(model="llama3.2")
 response = llm.invoke("Tell me a joke")
 print(response)
+
+
 4️⃣ Retrieval-Based Conversational AI
 Combine the Llama model with RetrievalQA from LangChain:
 
@@ -93,6 +101,8 @@ while True:
         break
     result = qa.run(query)
     print(result)
+
+    
 📚 Example Interaction
 Input: What is this document about?
 Output: This document appears to be a sample PDF document created for testing purposes. It covers Technology, Health, and Environment topics.
@@ -103,11 +113,15 @@ Output: The document's content includes "sample text on different topics," speci
 Input: Tell me a joke.
 Output: What do you call a fake noodle? An impasta.
 
+
+
 🎯 Customization Options
 Change Embedding Model: Use another embedding model like all-MiniLM-L6-v2 for specific tasks.
 Adjust Chunk Size: Modify chunk_size and chunk_overlap to process smaller or larger sections of the document.
 Use Custom Models: Replace Llama 3.2 with other Ollama-compatible models for experimentation.
 Fine-Tune Llama: Train Llama 3.2 with domain-specific data for tailored responses.
+
+
 📦 Model and Database Persistence
 Save Vector Store
 python

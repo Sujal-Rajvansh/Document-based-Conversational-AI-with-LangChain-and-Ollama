@@ -1,20 +1,15 @@
-# 📄 Document-Based Conversational AI with LangChain and Ollama 🚀
+📄 Document-Based Conversational AI with LangChain and Ollama 🚀
+This project demonstrates building a document-based conversational AI system using LangChain, FAISS, and Ollama with the Llama 3.2 model. The system processes documents like PDFs, embeds them into a vector database, and enables question answering with context from the document.
 
-This project demonstrates building a **document-based conversational AI system** using **LangChain**, **FAISS**, and **Ollama** with the **Llama 3.2 model**. The system processes documents like PDFs, embeds them into a vector database, and enables question answering with context from the document.
-
-## 🌟 Key Features
-- **Document Ingestion**: Load and process PDF documents for conversational AI workflows.  
-- **Vector Database with FAISS**: Embed document chunks for fast and efficient retrieval.  
-- **Ollama Integration**: Utilize the powerful Llama 3.2 model for text generation and question answering.  
-- **LangChain Orchestration**: Combine document retrieval and AI responses into a seamless pipeline.
-
-## 🛠️ Installation
-1. Install the required libraries:
-   ```bash
-   pip install langchain langchain-community sentence-transformers faiss-gpu pypdf langchain_ollama
+🌟 Key Features
+Document Ingestion: Load and process PDF documents for conversational AI workflows.
+Vector Database with FAISS: Embed document chunks for fast and efficient retrieval.
+Ollama Integration: Utilize the powerful Llama 3.2 model for text generation and question answering.
+LangChain Orchestration: Combine document retrieval and AI responses into a seamless pipeline.
+🛠️ Installation
+Install the required libraries:
+pip install langchain langchain-community sentence-transformers faiss-gpu pypdf langchain_ollama
 Set up Colab Xterm (if running in Colab):
-bash
-Copy code
 pip install colab-xterm
 Log in to Hugging Face:
 python
@@ -102,10 +97,10 @@ Use Custom Models: Replace Llama 3.2 with other Ollama-compatible models for exp
 Fine-Tune Llama: Train Llama 3.2 with domain-specific data for tailored responses.
 📦 Model and Database Persistence
 Save Vector Store
-python
-Copy code
 vectorstore.save_local("faiss_index_")
+
 Load Vector Store
-python
-Copy code
-persisted_vectorstore = FAISS.load_local("faiss_index_", embeddings, allow_dangerous_deserializa
+persisted_vectorstore = FAISS.load_local("faiss_index_", embeddings, allow_dangerous_deserialization=True)
+
+🙌 Contributions
+Contributions are welcome! Feel free to open an issue or submit a pull request for improvements or new features.
